@@ -1,10 +1,17 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font'; 
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from 'react';
 import ProductDetails from './screens/ProductDetails';
+import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import BottomNavigator from './navigation/BottomNavigator';
 
+
+
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
@@ -19,15 +26,37 @@ export default function App() {
 
   })
 
+    const onLayoutRootView = useCallback(async () =>{
+
+      if(fontsLoaded){
+        await SplashScreen.hideAsync();
+      }
+    }, [fontsLoaded]);
+
+    if(!fontsLoaded){
+      return null;
+    }
+
+
+
+
 
 
   return (
-    <View style={styles.container}>
-      <ProductDetails/>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen
+      name='Bottom Navigation'
+      component={BottomNavigator}
+      options={{headerShown:false}}
+      />
 
-      <StatusBar style="auto" />
-    </View>
-  );
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  ); 
+  
 }
 
 const styles = StyleSheet.create({
@@ -37,4 +66,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  textStyle:{
+    fontFamily:"extrabold",
+    fontSize: 25,
+    
+  }
 });
