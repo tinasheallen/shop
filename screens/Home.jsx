@@ -1,14 +1,44 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {TouchableOpacity, Text, View, ScrollView } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Feather, Ionicons } from '@expo/vector-icons'
+import styles from './home.style'
+import { Welcome } from '../components'
+import ProductDetails from './ProductDetails'
+
+
+
+
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.appBarWrapper}>
+        <View style={styles.appBar}>
+          <Ionicons name='location-outline' size={24}/>
+
+          <Text style={styles.location}>Ureshino, Japan</Text>
+
+          <View style ={{alignItems: "flex-end"}}>
+                    <View style={styles.cartCount}>
+                    <Text style={styles.cartNumber}>4</Text>
+                    </View>
+                    <TouchableOpacity>
+                    <Feather name="shopping-cart" size={24} color="black" />
+                    </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+      <ScrollView>
+
+      <Welcome/>
+
+
+      <ProductDetails/>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
 export default Home
 
-const styles = StyleSheet.create({})

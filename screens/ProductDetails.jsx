@@ -41,8 +41,11 @@ const ProductDetails = () => {
             {isLoading ? (
                 <ActivityIndicator color="blue" size="large" />
             ) : error ? <Text>{error}</Text>: (
+
+                
                 <FlatList
-                    showsVerticalScrollIndicator={false}
+                    //showsVerticalScrollIndicator={false}
+                    horizontal
                     data={products}
                     renderItem={({ item }) => (
                         <View style={styles.cardContainer}>
@@ -52,6 +55,8 @@ const ProductDetails = () => {
                         </View>
                     )}
                 />
+
+
             )}
         </View>
     );
@@ -77,3 +82,4 @@ const styles = StyleSheet.create({
         width: 200
     }
 });
+
