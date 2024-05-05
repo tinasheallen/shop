@@ -13,7 +13,11 @@ npm install
 ```
 
 ```
-npm run dev
+npm start
+```
+
+```
+i (to start ios device)
 ```
 
 ###
