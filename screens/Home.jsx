@@ -2,9 +2,9 @@ import {TouchableOpacity, Text, View, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Feather, Ionicons } from '@expo/vector-icons'
-import styles from './home.style'
-import { Welcome } from '../components'
+import styles from './home.style' 
 import ProductDetails from './ProductDetails'
+import { Welcome } from '../components'
 
 
 
@@ -25,13 +25,14 @@ const Home = () => {
                     </View>
                     <TouchableOpacity>
                     <Feather name="shopping-cart" size={24} color="black" />
-                    </TouchableOpacity>
+                    </TouchableOpacity> 
           </View>
         </View>
       </View>
       <ScrollView>
-
       <Welcome/>
+
+      
 
 
       <ProductDetails/>
