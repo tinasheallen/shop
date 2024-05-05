@@ -52,6 +52,8 @@ const ProductDetails = () => {
                             <Image source={{ uri: item.image }} style={styles.image} />
                             <Text>{item.title}</Text>
                             <Text>{item.price}</Text>
+                            <Text>{item.category}</Text>
+                            
                         </View>
                     )}
                 />
